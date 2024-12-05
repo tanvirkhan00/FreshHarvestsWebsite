@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { apiData } from './ContextApi';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 const ProductsHome = () => {
     const Products = useContext(apiData)
@@ -53,26 +54,30 @@ const ProductsHome = () => {
                             {categoryItem.length > 0 ?
                                 <div className='flex flex-wrap gap-[24px]'>
                                     {categoryItem.map((item) => (
-                                        <div className='w-[282px] shadow-md h-[360px] rounded-[20px] flex flex-col items-center text-center'>
-                                            <img src={item.images} alt={item.productName} />
-                                            <div className='flex flex-col gap-[12px]'>
-                                                <h1 className='text-[18px] font-medium'>{item.productName}</h1>
-                                                <h3>${item.price}/kg</h3>
-                                                <button className='border-[1px] border-slate-400 rounded-[8px] duration-500 ease-in-out hover:bg-[#FF6A1A] hover:text-[#fff]'>Add to cart</button>
+                                        <Link to={`/product/${item.id}`}>
+                                            <div className='w-[282px] shadow-md h-[360px] rounded-[20px] flex flex-col items-center text-center'>
+                                                <img src={item.images} alt={item.productName} />
+                                                <div className='flex flex-col gap-[12px]'>
+                                                    <h1 className='text-[18px] font-medium'>{item.productName}</h1>
+                                                    <h3>${item.price}/kg</h3>
+                                                    <button className='border-[1px] border-slate-400 rounded-[8px] duration-500 ease-in-out hover:bg-[#FF6A1A] hover:text-[#fff]'>Add to cart</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     ))}
                                 </div> :
                                 <div className='flex flex-wrap gap-[24px]'>
                                     {Products.map((item) => (
-                                        <div className='w-[282px] shadow-md h-[360px] rounded-[20px] flex flex-col items-center text-center'>
-                                            <img src={item.images[0]} alt={item.productName} />
-                                            <div className='flex flex-col gap-[12px]'>
-                                                <h1 className='text-[18px] font-medium'>{item.productName}</h1>
-                                                <h3>${item.price}/kg</h3>
-                                                <button className='border-[1px] border-slate-400 rounded-[8px] duration-500 ease-in-out hover:bg-[#FF6A1A] hover:text-[#fff]'>Add to cart</button>
+                                        <Link to={`/product/${item.id}`}>
+                                            <div className='w-[282px] shadow-md h-[360px] rounded-[20px] flex flex-col items-center text-center'>
+                                                <img src={item.images} alt={item.productName} />
+                                                <div className='flex flex-col gap-[12px]'>
+                                                    <h1 className='text-[18px] font-medium'>{item.productName}</h1>
+                                                    <h3>${item.price}/kg</h3>
+                                                    <button className='border-[1px] border-slate-400 rounded-[8px] duration-500 ease-in-out hover:bg-[#FF6A1A] hover:text-[#fff]'>Add to cart</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     ))}
                                 </div>
                             }
