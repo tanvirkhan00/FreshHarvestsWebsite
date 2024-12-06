@@ -49,7 +49,7 @@ const Hiro = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='absolute -z-10 lg:pr-[64px] bottom-0'>
+                            <div className='absolute -z-10 lg:pr-[64px] bottom-0 right-0'>
                                 <img src={Image2} alt="" />
                             </div>
                         </div>
