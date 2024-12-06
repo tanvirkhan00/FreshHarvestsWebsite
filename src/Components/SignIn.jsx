@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router';
 
 // Icon
-import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 
 // Image
 import line from "../assets/line.png"
-import { Link } from 'react-router';
 
 
 const SignIn = () => {
+
+    let [passShow, setPassShow] = useState(false)
+    let handleEye =() =>{
+        setPassShow(!passShow) 
+    }
+    let handlePass = (e) => {
+        setPassWord(e.target.value)
+        setPassWordErr('')
+    }
     return (
         <>
 
@@ -29,8 +38,9 @@ const SignIn = () => {
                                 <div className='flex flex-col gap-2'>
                                     <label htmlFor="pass">Password</label>
                                     <div className='flex items-center border-[1px] border-slate-400 p-[16px] rounded-[8px]'>
-                                        <input className='w-full outline-none ' id='pass' placeholder='Enter your password' type="text" />
-                                        <span><FaRegEyeSlash/></span>
+                                        <input onChange={handlePass} className='w-full outline-none ' id='pass' placeholder='Enter your password' type={passShow ? 'text' : 'password'} />
+                                        <span onClick={handleEye}>{passShow ? <FaEyeSlash /> : <FaRegEye />
+                                        }</span>
                                     </div>
                                 </div>
                                 <div className='flex flex-wrap items-center justify-between'>
