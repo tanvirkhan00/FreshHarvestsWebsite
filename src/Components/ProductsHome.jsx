@@ -10,8 +10,7 @@ const ProductsHome = () => {
     const [categoryItem, setcategoryItem] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("https://api-fresh-harvest.code-commando.com/api/v1/category")
+        axios.get("https://api-fresh-harvest.code-commando.com/api/v1/category")
             .then((response) => {
                 setCategories(response.data.data);
             })
@@ -78,6 +77,7 @@ const ProductsHome = () => {
                                                 </div>
                                             </div>
                                         </Link>
+                                        
                                     ))}
                                 </div>
                             }
