@@ -4,10 +4,8 @@ import React from 'react';
 import Image from "../assets/Image.png"
 import Image2 from "../assets/Image1.png"
 import Clip from "../assets/Clip.png"
-
-// Icons
-import { FaApple } from 'react-icons/fa';
-import { IoLogoGooglePlaystore } from 'react-icons/io5';
+import appStore from "../assets/appleStore.png"
+import googlePlay from "../assets/googleplay.png"
 
 const Hiro = () => {
     return (
@@ -16,7 +14,7 @@ const Hiro = () => {
             <section>
                 <div className="container">
                     <div className=''>
-                        <div className='relative'>
+                        <div className='relative z-40 after:absolute after:w-[30%] after:h-full after:bg-green-500 after:top-0 after:right-0 after:-z-20'>
                             <div className='flex flex-col gap-[16px]'>
                                 <p className='text-[#749B3F] text-[20px] font-medium tracking-[-0.4px] px-[12px] py-[4px]  rounded-[8px]'>Welcome to Fresh Harvest</p>
                                 <h1 className='text-[48px] lg:text-[80px] font-medium lg:w-[660px]'>Fresh Fruits and Vegetables</h1>
@@ -43,19 +41,11 @@ const Hiro = () => {
                             <div className='mt-[120px] pb-[50px]'>
                                 <h2 className='text-[14px] text-slate-600'>Download App:</h2>
                                 <div className='flex items-center gap-[19px] mt-2'>
-                                    <div className='flex items-center bg-[#000] text-[#fff] rounded-[10px] gap-2 px-[20px]'>
-                                        <span className='text-[25px]'><FaApple /></span>
-                                        <div>
-                                            <p className='text-[12px]'>Download on the </p>
-                                            <p className='font-semibold'>App Store</p>
-                                        </div>
+                                    <div>
+                                        <img src={appStore} alt="" />
                                     </div>
-                                    <div className='flex items-center bg-[#000] text-[#fff] rounded-[10px] gap-2 px-[20px]'>
-                                        <span className='text-[25px]'><IoLogoGooglePlaystore /></span>
-                                        <div>
-                                            <p className='text-[12px]'>Get IT ON</p>
-                                            <p className='font-semibold'>Google Play</p>
-                                        </div>
+                                    <div>
+                                        <img src={googlePlay} alt="" />
                                     </div>
                                 </div>
                             </div>

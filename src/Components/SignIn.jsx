@@ -14,8 +14,8 @@ const SignIn = () => {
 
             <section>
                 <div className="container">
-                    <div className='flex items-center justify-center h-[100vh]'>
-                        <div className='w-[478px] shadow-md shadow-black px-[32px] py-[24px]'>
+                    <div className='lg:flex lg:items-center lg:justify-center h-[100vh]'>
+                        <div className='lg:w-[478px] shadow-md shadow-black px-[32px] py-[24px]'>
                             <h1 className='font-semibold text-[32px] text-center'>Register</h1>
                             <form className='flex flex-col gap-[20px] mt-[24px]' action="">
                                 <div className='flex flex-col gap-2'>
@@ -33,7 +33,7 @@ const SignIn = () => {
                                         <span><FaRegEyeSlash/></span>
                                     </div>
                                 </div>
-                                <div className='flex items-center justify-between'>
+                                <div className='flex flex-wrap items-center justify-between'>
                                     <div className='flex items-center gap-2'>
                                         <input id='Remember' type="checkBox" />
                                         <label htmlFor="Remember">Remember Me</label>
@@ -45,9 +45,9 @@ const SignIn = () => {
                                 <button className='w-full py-[16px] text-white bg-[#FF6A1A] rounded-[8px]'>Sign In</button>
                             </form>
                             <div className='flex items-center mt-[24px]'>
-                                <img src={line} alt="" />
+                                <img className='w-[45%]' src={line} alt="" />
                                 <p>Or</p>
-                                <img src={line} alt="" />
+                                <img className='w-[45%]' src={line} alt="" />
                             </div>
                             <p className='mt-[24px] font-semibold'>Have an Account ? <span className='text-[#FF6A1A]'><Link to="/login">Login</Link></span></p>
                         </div>

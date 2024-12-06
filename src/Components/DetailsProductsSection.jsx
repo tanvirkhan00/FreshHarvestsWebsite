@@ -23,16 +23,8 @@ const DetailsProductsSection = () => {
     const [categories, setCategories] = useState([])
 
 
-    
-    if (!products || products.length === 0) {
-        return <p className='text-center py-10'>Loading...</p>;
-    }
-    const product = products.find((item) => item.id === id);
-    console.log(product);
 
-    if (!product) {
-        return <p className='text-center py-10'>Product not found!</p>;
-    }
+
     // CategoryName
     useEffect(() => {
         axios.get("https://api-fresh-harvest.code-commando.com/api/v1/category")
@@ -43,11 +35,22 @@ const DetailsProductsSection = () => {
                 console.error("Error fetching categories:", error);
             });
     }, []);
+    
+    const product = products.find((item) => item.id === id);
+    console.log(product);
 
     let filterCategory = products.filter((item) => item.categoryId == product.categoryId)
 
-    let filtercategoryName =categories.filter((categoryName) => categoryName.id == product.categoryId)
-    
+    let filtercategoryName = categories.filter((categoryName) => categoryName.id == product.categoryId)
+
+    if (!products || products.length === 0) {
+        return <p className='text-center py-10'>Loading...</p>;
+    }
+
+    if (!product) {
+        return <p className='text-center py-10'>Product not found!</p>;
+    }
+
 
 
 
@@ -56,12 +59,12 @@ const DetailsProductsSection = () => {
     return (
         <>
             <section>
-                <div className="container px-[120px]">
-                    <div className='flex items-center gap-[30px] flex-wrap'>
-                        <div className='basis-[45%]'>
-                            <img src={product.images} alt="" />
+                <div className="container px-[20px]">
+                    <div className='flex items-center flex-col lg:flex-row gap-[30px]'>
+                        <div className='lg:basis-[45%] flex items-center justify-center'>
+                            <img className='' src={product.images} alt="" />
                         </div>
-                        <div className='basis-[47%] flex flex-col gap-[16px]'>
+                        <div className='lg:basis-[45%] flex flex-col gap-[16px]'>
                             {filtercategoryName.map((item) => (
                                 <p className='font-semibold bg-green-400 text-green-700 max-w-fit px-2 bg-opacity-30 capitalize rounded-[10px] text-[20px]'>{item.categoryName}</p>
                             ))}
@@ -84,12 +87,12 @@ const DetailsProductsSection = () => {
                                     <span><FiPlus /></span>
                                 </div>
                             </div>
-                            <div className='flex items-center justify-between mt-[24px] gap-3'>
-                                <button className='w-[280px] px-[32px] py-[16px] flex items-center justify-center text-[18px] font-semibold gap-[10px] bg-slate-400 duration-300 ease-in-out hover:bg-[#EE4536] hover:text-white rounded-[8px] '>
+                            <div className='flex flex-wrap items-center  mt-[24px] gap-3'>
+                                <button className='px-[32px] py-[16px] flex items-center justify-center text-[18px] font-semibold gap-[10px] bg-slate-400 duration-300 ease-in-out hover:bg-[#EE4536] hover:text-white rounded-[8px] '>
                                     <span><CiHeart /></span>
                                     <p>Save as favourite</p>
                                 </button>
-                                <button className='w-[280px] px-[32px] py-[16px] flex items-center justify-center text-[18px] font-semibold gap-[10px] bg-slate-400 duration-300 ease-in-out hover:bg-[#EE4536] hover:text-white rounded-[8px] '>
+                                <button className='px-[32px] py-[16px] flex items-center justify-center text-[18px] font-semibold gap-[10px] bg-slate-400 duration-300 ease-in-out hover:bg-[#EE4536] hover:text-white rounded-[8px] '>
                                     <span><IoCart /></span>
                                     <p>Add to cart</p>
                                 </button>
@@ -120,7 +123,7 @@ const DetailsProductsSection = () => {
                     </div>
                 </div>
 
-                <RelatedProducts filterCategory ={filterCategory} />
+                <RelatedProducts filterCategory={filterCategory} />
             </section>
         </>
     );

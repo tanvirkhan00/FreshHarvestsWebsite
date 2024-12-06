@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 
 // Image
@@ -11,6 +11,21 @@ import { IoIosMenu } from "react-icons/io";
 
 
 const Navbar = () => {
+
+    const [menuShow, setmenuShow] = useState(false)
+    const menuRef = useRef()
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setmenuShow(false);
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+        return () => document.removeEventListener("click", handleClickOutside);
+    }, []);
+
     return (
         <>
 
@@ -20,16 +35,20 @@ const Navbar = () => {
                         <div className=''>
                             <img className='w-[224px] h-[39px]' src={logo} alt="" />
                         </div>
-                        <div className='hidden lg:block'>
-                            <ul className='flex items-center gap-[64px] text-[14px]'>
+                        <div className=''>
+                            <ul className={`flex flex-col lg:flex-row items-center gap-4 transition-all duration-500 ease-in-out ${menuShow
+                                ? "max-h-screen opacity-100 mt-[100px] lg:mt-0"
+                                : "hidden lg:flex max-h-0 lg:max-h-none opacity-0 lg:opacity-100"
+                                }`}
+                            >
                                 <li><Link to="/">Home</Link></li>
-                                <li>Shop</li>
-                                <li>About Us</li>
-                                <li>Blog</li>
+                                <li className="hover:text-[#749B3F] transition">Shop</li>
+                                <li className="hover:text-[#749B3F] transition">About Us</li>
+                                <li className="hover:text-[#749B3F] transition">Blog</li>
                             </ul>
                         </div>
-                        <div className='flex items-center gap-[16px] pr-[14px]'>
-                            <div className='lg:flex items-center gap-[8px] hidden lg:block'>
+                        <div className='flex items-center gap-[16px]'>
+                            <div className='items-center gap-[8px] hidden lg:flex'>
                                 <span className='h-[24px] w-[24px] flex items-center justify-center '><IoMdHeart /></span>
                                 <p>Favorites</p>
                             </div>
@@ -42,10 +61,12 @@ const Navbar = () => {
                                 <Link to="/signIn">Sign in</Link>
                             </button>
                         </div>
-                        <span className='lg:hidden'><IoIosMenu/></span>
+                        <div className='lg:hidden' ref={menuRef} >
+                            <span onClick={() => setmenuShow((prev) => !prev)} ><IoIosMenu /></span>
+                        </div>
                     </div>
                 </div>
-            </nav>
+            </nav >
 
         </>
     );
