@@ -12,8 +12,8 @@ import { IoIosMenu } from "react-icons/io";
 
 const Navbar = () => {
 
-    const [menuShow, setmenuShow] = useState(false)
-    const menuRef = useRef()
+    const [menuShow, setmenuShow] = useState(false);
+    const menuRef = useRef();
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -29,16 +29,14 @@ const Navbar = () => {
     return (
         <>
 
-            <nav>
+            <nav className='fixed w-full z-50 left-0  top-0 bg-white bg-opacity-90 border-b-2 border-blue-500'>
                 <div className="container">
-                    <div className='flex items-center justify-between h-[100px]'>
+                    <div className='flex items-center justify-between h-[100px] px-[20px]'>
                         <div className=''>
                             <img className='w-[224px] h-[39px]' src={logo} alt="" />
                         </div>
                         <div className=''>
-                            <ul className={`flex flex-col lg:flex-row items-center gap-4 transition-all duration-500 ease-in-out ${menuShow
-                                ? "max-h-screen opacity-100 mt-[100px] lg:mt-0"
-                                : "hidden lg:flex max-h-0 lg:max-h-none opacity-0 lg:opacity-100"
+                            <ul className={`flex flex-col mt-[100px] lg:mt-0 lg:flex-row items-center gap-4 transition-all duration-500 ease-in-out ${menuShow ? "block max-h-screen opacity-100" : "hidden lg:flex max-h-0 lg:max-h-none opacity-0 lg:opacity-100"
                                 }`}
                             >
                                 <li><Link to="/">Home</Link></li>

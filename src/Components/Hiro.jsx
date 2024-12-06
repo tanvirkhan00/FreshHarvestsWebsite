@@ -12,7 +12,7 @@ const Hiro = () => {
         <>
 
             <section>
-                <div className="container">
+                <div className="container mt-[150px]">
                     <div className=''>
                         <div className='relative z-40 after:absolute after:w-[30%] after:h-full after:bg-green-500 after:top-0 after:right-0 after:-z-20'>
                             <div className='flex flex-col gap-[16px]'>
