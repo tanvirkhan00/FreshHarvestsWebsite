@@ -36,8 +36,7 @@ const Navbar = () => {
                             <img className='w-[224px] h-[39px]' src={logo} alt="" />
                         </div>
                         <div className=''>
-                            <ul className={`flex flex-col mt-[100px] lg:mt-0 lg:flex-row items-center gap-4 transition-all duration-500 ease-in-out ${menuShow ? "block max-h-screen opacity-100" : "hidden lg:flex max-h-0 lg:max-h-none opacity-0 lg:opacity-100"
-                                }`}
+                            <ul className={`lg:flex lg:flex-row flex flex-col gap-y-3 gap-x-10  pl-[20px] pt-[20px] lg:pt-0 font-sans text-[#767676] text-[18px] font-medium lg:static fixed duration-[800ms]  ${menuShow == true ? "bg-[#262626] top-[0px] left-0 w-1/2 h-full py-2" : "top-[0px] left-[-250px] h-full"}`}
                             >
                                 <li><Link to="/">Home</Link></li>
                                 <li className="hover:text-[#749B3F] transition">Shop</li>

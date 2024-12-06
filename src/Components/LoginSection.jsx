@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Icon
 import { FaRegEyeSlash } from "react-icons/fa6";
@@ -8,6 +8,11 @@ import line from "../assets/line.png"
 import { Link } from 'react-router';
 
 const LoginSection = () => {
+
+    let [passShow, setPassShow] = useState(false)
+    let handleEye =() =>{
+        setPassShow(!passShow) 
+    }
     return (
         <>
 
@@ -24,8 +29,8 @@ const LoginSection = () => {
                                 <div className='flex flex-col gap-2'>
                                     <label htmlFor="pass">Password</label>
                                     <div className='flex items-center border-[1px] border-slate-400 p-[16px] rounded-[8px]'>
-                                        <input className='w-full outline-none ' id='pass' placeholder='Enter your password' type="text" />
-                                        <span><FaRegEyeSlash /></span>
+                                        <input onChange={handlePass} className='w-full outline-none ' id='pass' placeholder='Enter your password' type="text" />
+                                        <span onClick={handleEye}><FaRegEyeSlash /></span>
                                     </div>
                                 </div>
                                 <div className='flex flex-wrap items-center justify-between'>

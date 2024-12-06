@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route, RouterProvider } from "react-router"
+import { createBrowserRouter, Route, RouterProvider, ScrollRestoration } from "react-router"
 import { createRoutesFromElements } from "react-router"
 import Home from "./Pages/Home"
 import DetailsProducts from "./Pages/DetailsProducts"
@@ -6,6 +6,7 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 
 function App() {
+
   let router = createBrowserRouter(createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />} />
@@ -17,7 +18,10 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+
+      <RouterProvider router={router}>
+        <ScrollRestoration />
+      </RouterProvider>
 
     </>
   )

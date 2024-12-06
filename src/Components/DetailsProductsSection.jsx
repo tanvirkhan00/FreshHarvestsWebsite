@@ -51,6 +51,12 @@ const DetailsProductsSection = () => {
         return <p className='text-center py-10'>Product not found!</p>;
     }
 
+    useEffect(() => {
+        window.scrollTo({
+            top:0
+        })
+    },[])
+
 
 
 
